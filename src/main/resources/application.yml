@@ -1,1 +1,16 @@
+server:
+  port: 8081
+spring:
+  kafka:
+    bootstrap-servers: 'localhost:9092'
+    consumer:
+      group-id: 'my-topic'
+      key-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.type.mapping: 'model:com.example.mykafkaconsumer1.TestModel'
+
+    producer:
+      key-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
